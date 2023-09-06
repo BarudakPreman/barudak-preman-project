@@ -1,0 +1,16 @@
+{
+  "preman": [
+    {
+      "id": 1,
+      "name": "Kentung"
+    },
+    {
+      "id": 2,
+      "name": "Gakeng"
+    },
+    {
+      "name": "Fadlan",
+      "id": 3
+    }
+  ]
+}
