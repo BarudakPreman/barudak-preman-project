@@ -1,0 +1,29 @@
+/* dark-theme.css */
+.dark-root {
+    background-color: #201f1f;
+    color: #fff;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.light-root {
+    background-color: #fff;
+    color: #201f1f;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  /* dark-theme.css */
+.dark-theme-button {
+    background-color: #333; /* Dark gray background for moon */
+    color: #ccc; /* Light gray text color for moon */
+  }
+  
+  /* light-theme.css */
+  .light-theme-button {
+    background-color: #f8e71c; /* Soft yellow background for sun */
+    color: #333; /* Dark gray text color for sun */
+  }
+
+  .button-no-outline:focus {
+    outline: none;
+  }
+  
