@@ -9,7 +9,7 @@ const AddNameForm = ({ onAddName, editIndex, names, isDark }) => {
     if (editIndex !== null) {
       const editedName = names.find((n) => n.id === editIndex);
       if (editedName) {
-        setName(editedName.name);
+        setName(editedName.nama);
       }
     } else {
       setName("");

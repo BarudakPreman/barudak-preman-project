@@ -1,12 +1,18 @@
 {
-  "preman": [
+  "premans": [
     {
-      "name": "Syafira",
-      "id": 1
+      "id": 1,
+      "CreatedAt": "2023-09-07T21:46:57.733277+07:00",
+      "UpdatedAt": "2023-09-07T21:47:11.109434+07:00",
+      "DeletedAt": null,
+      "name": "Testqe"
     },
     {
-      "name": "Test",
-      "id": 2
+      "id": 2,
+      "CreatedAt": "2023-09-07T21:46:57.733277+07:00",
+      "UpdatedAt": "2023-09-07T21:47:11.109434+07:00",
+      "DeletedAt": null,
+      "name": "qwe"
     }
   ]
 }
