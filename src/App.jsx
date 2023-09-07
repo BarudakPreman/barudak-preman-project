@@ -1,16 +1,36 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
+import { FaMoon, FaSun } from "react-icons/fa6";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import AddNameForm from "./components/AddNameForm";
 import NameList from "./components/NameList";
+import "./styles/index.css"; // Dark theme styles
 
 function App() {
   const [names, setNames] = useState([]);
-  const [editIndex, setEditIndex] = useState(null); // Initialize with null
+  const [editIndex, setEditIndex] = useState(null);
+  const apiUrl = import.meta.env.VITE_KEY_URL;
+
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [darkVar, setDarkVar] = useState("");
+  const toggleTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+    // console.log("isDarkTheme:", isDarkTheme); // Check the state
+    if (isDarkTheme) {
+      setDarkVar("light");
+      document.body.classList.remove("dark-root");
+      document.body.classList.add("light-root");
+    } else {
+      setDarkVar("dark");
+      document.body.classList.remove("light-root");
+      document.body.classList.add("dark-root");
+    }
+  };
 
   useEffect(() => {
     // Fetch the names from json-server when the component mounts
-    fetch("http://localhost:3001/preman")
+    fetch(`${apiUrl}/preman`)
       .then((response) => response.json())
       .then((data) => {
         setNames(data);
@@ -27,7 +47,7 @@ function App() {
       setEditIndex(null);
 
       // Send a PUT request to update the name on the JSON Server
-      fetch(`http://localhost:3001/preman/${editIndex}`, {
+      fetch(`${apiUrl}/preman/${editIndex}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +64,7 @@ function App() {
         });
     } else {
       // Add new name
-      fetch("http://localhost:3001/preman", {
+      fetch(`${apiUrl}/preman`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,7 +87,7 @@ function App() {
 
   const handleDeleteName = (id) => {
     // Send a DELETE request to remove the name from JSON Server
-    fetch(`http://localhost:3001/preman/${id}`, {
+    fetch(`${apiUrl}/preman/${id}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -85,8 +105,28 @@ function App() {
   };
 
   return (
-    <Container>
+    <Container data-bs-theme="light">
       <Row>
+        <Row>
+          <Col>
+            <Button
+              onClick={toggleTheme}
+              variant={
+                isDarkTheme ? "light outline-light" : "dark outline-dark"
+              }
+            >
+              {isDarkTheme ? (
+                <>
+                  <FaSun /> Light Mode
+                </>
+              ) : (
+                <>
+                  <FaMoon /> Dark Mode
+                </>
+              )}
+            </Button>
+          </Col>
+        </Row>
         <Col>
           <h1>
             {editIndex !== null
@@ -97,6 +137,7 @@ function App() {
             onAddName={handleAddName}
             editIndex={editIndex}
             names={names}
+            isDark={darkVar}
           />
         </Col>
       </Row>
@@ -107,6 +148,7 @@ function App() {
             names={names}
             onEditName={handleEditName}
             onDeleteName={handleDeleteName}
+            isDark={darkVar}
           />
         </Col>
       </Row>

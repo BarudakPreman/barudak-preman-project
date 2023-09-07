@@ -1,16 +1,12 @@
 {
   "preman": [
     {
-      "id": 1,
-      "name": "Kentung"
+      "name": "Syafira",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Gakeng"
-    },
-    {
-      "name": "Fadlan",
-      "id": 3
+      "name": "Test",
+      "id": 2
     }
   ]
 }

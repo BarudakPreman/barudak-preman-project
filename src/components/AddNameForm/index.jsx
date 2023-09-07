@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 
-const AddNameForm = ({ onAddName, editIndex, names }) => {
+const AddNameForm = ({ onAddName, editIndex, names, isDark }) => {
   const [name, setName] = useState("");
 
   useEffect(() => {
@@ -42,9 +42,10 @@ const AddNameForm = ({ onAddName, editIndex, names }) => {
           placeholder="Enter a new name"
           value={name}
           onChange={handleNameChange}
+          data-bs-theme={isDark}
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" data-bs-theme={isDark}>
         {editIndex !== null ? "Edit Member" : "Add New Member"}
       </Button>
     </Form>
