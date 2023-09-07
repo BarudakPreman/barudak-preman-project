@@ -10,8 +10,7 @@ as a mock backend. It allows you to manage a list of members.
 Follow these steps to set up the project on your local
 machine:
 
-1. Clone the repository to your local machine using Git: git clone
-https://github.com/your-username/barudak-preman-project.git 
+1. Clone the repository to your local machine using Git: git clone https://github.com/BarudakPreman/barudak-preman-project.git
 2. Navigate
 to the project directory: cd barudak-preman-project
 3. Install project
